@@ -1,4 +1,4 @@
-import { DayTypes } from './types';
+import { DayTypes, WeekDays } from './types';
 
 export const DayBoxColors = {
   [DayTypes.default]: '#ffffff',
@@ -49,11 +49,11 @@ export const PriceColors = {
 };
 
 export const weekDayNames = {
-  0: 'sun',
-  1: 'mon',
-  2: 'tue',
-  3: 'wed',
-  4: 'thu',
-  5: 'fri',
-  6: 'sat',
+  [WeekDays.sunday]: 'sun',
+  [WeekDays.monday]: 'mon',
+  [WeekDays.tuesday]: 'tue',
+  [WeekDays.wednesday]: 'wed',
+  [WeekDays.thursday]: 'thu',
+  [WeekDays.friday]: 'fri',
+  [WeekDays.saturday]: 'sat',
 };
