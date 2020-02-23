@@ -3,8 +3,10 @@ import { DayTypes } from './components/Day/dayConfig';
 import ReactCalendar from './components/ReactCalendar';
 import { WeekDays } from './components/ReactCalendar/types';
 import MonthDay from './components/Day/Day';
-import { useSelectDateRange } from './hooks';
+import { useSelectDateRange, Months } from './hooks';
 import { getMonthDaySelectedType } from './components/ReactCalendar/utils';
+import Calendar from './components/ReactCalendar2/Calendar';
+import styled from 'styled-components';
 
 const dayData: {
   [key: string]: {
@@ -25,6 +27,12 @@ const dayData: {
     price: '€699',
   },
 };
+
+const Center = styled.div`
+  display: flex;
+  width: 100%;
+  place-content: center;
+`;
 
 const App = () => {
   const { onDateClick, from, to } = useSelectDateRange();
@@ -55,6 +63,9 @@ const App = () => {
           );
         }}
       />
+      <Center>
+        <Calendar year={2020} month={Months.March} weekStart={WeekDays.sunday} />
+      </Center>
     </div>
   );
 };
