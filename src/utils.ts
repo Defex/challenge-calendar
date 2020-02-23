@@ -1,15 +1,5 @@
 import { MonthDay, WeekDays, CalendarDate, DayTypes } from './types';
 
-export const WeekDayNames = {
-  [WeekDays.sunday]: 'SUN',
-  [WeekDays.monday]: 'MON',
-  [WeekDays.tuesday]: 'TUE',
-  [WeekDays.wednesday]: 'WED',
-  [WeekDays.thursday]: 'THU',
-  [WeekDays.friday]: 'FRI',
-  [WeekDays.saturday]: 'SAT',
-};
-
 const getDaysInMonth = (year: number, month: number) => new Date(year, month, 0).getDate();
 
 export const getMonthDays = (year: number, month: number): MonthDay[] => {
@@ -29,7 +19,9 @@ export const getMonthDays = (year: number, month: number): MonthDay[] => {
 
 export const getWeekList = (monthDays: MonthDay[], weekStart: WeekDays): Array<MonthDay[]> => {
   const splitIndexes = monthDays.reduce((acc: number[], v, i) => (v.weekDayInt === weekStart ? [...acc, i] : acc), []);
-  const weeks = [...splitIndexes, monthDays.length].map((v, i, arr) => monthDays.slice(i > 0 ? arr[i - 1] : 0, v));
+  const weeks = [...splitIndexes, monthDays.length]
+    .map((v, i, arr) => monthDays.slice(i > 0 ? arr[i - 1] : 0, v))
+    .filter(arr => arr.length !== 0);
   return weeks;
 };
 
