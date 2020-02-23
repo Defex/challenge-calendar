@@ -1,6 +1,4 @@
-import { MonthDay, WeekDays } from './types';
-import { CalendarDate } from '../../hooks';
-import { DayTypes } from '../Day/dayConfig';
+import { MonthDay, WeekDays, CalendarDate, DayTypes } from './types';
 
 export const WeekDayNames = {
   [WeekDays.sunday]: 'SUN',

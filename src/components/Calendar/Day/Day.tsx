@@ -1,6 +1,7 @@
 import React from 'react';
 import { DayContainer, Triangle, Price, Day } from './Day.styles';
-import { DayTypes, DayBoxColors, TriangleColors, DayColors, PriceColors } from './dayConfig';
+import { DayBoxColors, TriangleColors, DayColors, PriceColors } from '../../../config';
+import { DayTypes } from '../../../types';
 
 const isSelected = (type: DayTypes) =>
   [DayTypes.selected, DayTypes.selectedFirst, DayTypes.selectedLast].includes(type);

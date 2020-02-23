@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelectDateRange } from '../../hooks';
-import { useGetCalendarWeeks } from '../ReactCalendar/hooks';
+import { useSelectDateRange, useGetCalendarWeeks } from '../../hooks';
 import { ReactComponent as ChevronRight } from '../../assets/chevron_right.svg';
 import { ReactComponent as ChevronLeft } from '../../assets/chevron_left.svg';
 
@@ -17,19 +16,10 @@ import {
   HeaderButton,
   ContentDay,
 } from './Calendar.styles';
-import { getMonthName, getMonthDaySelectedType } from '../ReactCalendar/utils';
-import MonthDay from '../Day/Day';
-import { DayTypes } from '../Day/dayConfig';
-
-export const weekDayNames = {
-  0: 'sun',
-  1: 'mon',
-  2: 'tue',
-  3: 'wed',
-  4: 'thu',
-  5: 'fri',
-  6: 'sat',
-};
+import MonthDay from './Day/Day';
+import { DayTypes } from '../../types';
+import { getMonthName, getMonthDaySelectedType } from '../../utils';
+import { weekDayNames } from '../../config';
 
 const dayData: {
   [key: string]: {
@@ -53,8 +43,8 @@ const dayData: {
 
 const Calendar = ({ year, month, weekStart }: { year: number; month: number; weekStart: number }) => {
   const { onDateClick, from, to } = useSelectDateRange();
-  const { nextMonth, prevMonth, calendarReducer } = useGetCalendarWeeks(year, month, weekStart);
-  const { weekDays, currentYear, currentMonth, calendarWeeks } = calendarReducer;
+  const { nextMonth, prevMonth, reducer } = useGetCalendarWeeks(year, month, weekStart);
+  const { weekDays, currentYear, currentMonth, calendarWeeks } = reducer;
   return (
     <Container>
       <Header>
@@ -78,7 +68,7 @@ const Calendar = ({ year, month, weekStart }: { year: number; month: number; wee
           <ContentWeek key={i}>
             {week.map((monthDay, j) => {
               if (!monthDay) {
-                return <ContentDay />;
+                return <ContentDay key={j} />;
               }
               const date = dayData[monthDay.date];
               const selected = getMonthDaySelectedType(

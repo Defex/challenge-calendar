@@ -1,14 +1,4 @@
-export enum DayTypes {
-  default = 'default',
-  available = 'available',
-  confirmed = 'confirmed',
-  almostFull = 'allmostFull',
-  soldOut = 'soldOut',
-  selectedFirst = 'selectedFirst',
-  selected = 'selected',
-  selectedLast = 'selectedLast',
-  hover = 'hover',
-}
+import { DayTypes } from './types';
 
 export const DayBoxColors = {
   [DayTypes.default]: '#ffffff',
@@ -56,4 +46,14 @@ export const PriceColors = {
   [DayTypes.selected]: '#FFFFFF',
   [DayTypes.selectedLast]: '#FFFFFF',
   [DayTypes.hover]: '#0062FF',
+};
+
+export const weekDayNames = {
+  0: 'sun',
+  1: 'mon',
+  2: 'tue',
+  3: 'wed',
+  4: 'thu',
+  5: 'fri',
+  6: 'sat',
 };

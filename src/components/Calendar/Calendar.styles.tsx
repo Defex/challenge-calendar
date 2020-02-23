@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -73,16 +73,14 @@ export const ContentWeek = styled.div`
   color: #252d3c;
 `;
 
-interface IDayContainer {
-  hoverColor?: string;
-  selected?: boolean;
-}
-
-export const ContentDay = styled.div<IDayContainer>`
+export const ContentDay = styled.div`
   height: 80px;
   width: 100%;
+  background-color: #ffffff;
 `;
 
 export const Footer = styled.div`
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 `;
