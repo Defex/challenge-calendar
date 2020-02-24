@@ -64,9 +64,6 @@ export const getMonthDaySelectedType = (
   const _from = from && toDateString(from.year, from.month - 1, from.day + 1);
   const _to = to && toDateString(to.year, to.month - 1, to.day + 1);
 
-  console.log(date, from, to);
-  console.log(_date, _from, _to);
-
   if (_date === _from) {
     return DayTypes.selectedFirst;
   }
