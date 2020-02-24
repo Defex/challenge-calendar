@@ -84,3 +84,61 @@ export const Footer = styled.div`
   width: 100%;
   justify-content: space-between;
 `;
+
+export const FooterCalendar = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 0px 0px 0px 4px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const IconCalendar = styled.div`
+  display: flex;
+  place-content: center;
+  align-items: center;
+  width: 40px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+
+  > svg {
+    justify-self: center;
+    fill: #5395ff;
+  }
+`;
+
+export const DateStatuses = styled.div`
+  display: flex;
+`;
+
+export const DateStatus = styled.div`
+  text-align: left;
+  font: Normal 12px/16px 'Sofia Pro';
+  letter-spacing: 0;
+  position: relative;
+  margin-top: 16px;
+  margin-left: 16px;
+  padding-left: 16px;
+  color: ${props => props.color};
+`;
+
+export const IconInfo = styled.div`
+  margin-top: 16px;
+  padding-left: 16px;
+
+  > svg {
+    fill: #b8bec4;
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+export const TriangleSmall = styled.div`
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 0;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid ${props => props.color};
+`;

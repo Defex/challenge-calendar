@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelectDateRange, useGetCalendarWeeks } from '../../hooks';
-import { ReactComponent as ChevronRight } from '../../assets/chevron_right.svg';
-import { ReactComponent as ChevronLeft } from '../../assets/chevron_left.svg';
+import { ReactComponent as ChevronRightSvg } from '../../assets/chevron_right.svg';
+import { ReactComponent as ChevronLeftSvg } from '../../assets/chevron_left.svg';
+import { ReactComponent as CalendarSvg } from '../../assets/calendar.svg';
+import { ReactComponent as InfoSvg } from '../../assets/info.svg';
 
 import {
   Container,
@@ -15,6 +17,12 @@ import {
   HeaderDay,
   HeaderButton,
   ContentDay,
+  FooterCalendar,
+  IconCalendar,
+  DateStatuses,
+  DateStatus,
+  TriangleSmall,
+  IconInfo,
 } from './Calendar.styles';
 import MonthDay from './Day/Day';
 import { DayTypes } from '../../types';
@@ -51,10 +59,10 @@ const Calendar = ({ year, month, weekStart }: { year: number; month: number; wee
         <HeaderDate>{`${getMonthName(currentMonth)} ${currentYear}`}</HeaderDate>
         <HeaderNav>
           <HeaderButton onClick={() => prevMonth()}>
-            <ChevronLeft />
+            <ChevronLeftSvg />
           </HeaderButton>
           <HeaderButton onClick={() => nextMonth()}>
-            <ChevronRight />
+            <ChevronRightSvg />
           </HeaderButton>
         </HeaderNav>
         <HeaderDays>
@@ -90,7 +98,30 @@ const Calendar = ({ year, month, weekStart }: { year: number; month: number; wee
           </ContentWeek>
         ))}
       </Content>
-      <Footer>Footer</Footer>
+      <Footer>
+        <FooterCalendar>
+          <IconCalendar>
+            <CalendarSvg />
+          </IconCalendar>
+          <DateStatuses>
+            <DateStatus color={'#252D3C'}>
+              <TriangleSmall color={'#D9E8FF'} />
+              Available
+            </DateStatus>
+            <DateStatus color={'#0062FF'}>
+              <TriangleSmall color={'#0062FF'} />
+              Confirmed
+            </DateStatus>
+            <DateStatus color={'#F80B0B'}>
+              <TriangleSmall color={'#F80B0B'} />
+              Almost Full
+            </DateStatus>
+            <IconInfo>
+              <InfoSvg />
+            </IconInfo>
+          </DateStatuses>
+        </FooterCalendar>
+      </Footer>
     </Container>
   );
 };
