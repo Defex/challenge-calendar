@@ -15,7 +15,7 @@ import {
   getPrevYearAndMonth,
 } from './utils';
 
-export const getState = (year: number, month: number, weekStart: WeekDays) => {
+export const getCalendarReducerState = (year: number, month: number, weekStart: WeekDays) => {
   const monthDays = getMonthDays(year, month);
   const weekList = getWeekList(monthDays, weekStart);
   const weekDays = getWeekDaysOrder(weekStart);
@@ -35,11 +35,11 @@ export const calendarReducer = (state: CalendarReducer, type: string) => {
   switch (type) {
     case CalendarReducerActions.nextMonth: {
       const [nextYear, nextMonth] = getNextYearAndMonth(state.currentYear, state.currentMonth);
-      return getState(nextYear, nextMonth, state.weekStart);
+      return getCalendarReducerState(nextYear, nextMonth, state.weekStart);
     }
     case CalendarReducerActions.prevMonth: {
       const [prevYear, prevMonth] = getPrevYearAndMonth(state.currentYear, state.currentMonth);
-      return getState(prevYear, prevMonth, state.weekStart);
+      return getCalendarReducerState(prevYear, prevMonth, state.weekStart);
     }
     default:
       return state;

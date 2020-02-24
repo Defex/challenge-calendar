@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react';
-import { dateRangeInitialState, dateRangeReducer, getState, calendarReducer } from './reducers';
+import { dateRangeInitialState, dateRangeReducer, getCalendarReducerState, calendarReducer } from './reducers';
 import { DateRangeReducerActionsTypes, WeekDays, CalendarReducerActions } from './types';
 import { toDateString } from './utils';
 
@@ -30,7 +30,7 @@ export const useSelectDateRange = () => {
 };
 
 export const useGetCalendarWeeks = (year: number, month: number, weekStart: WeekDays) => {
-  const [reducer, dispatch] = useReducer(calendarReducer, getState(year, month, weekStart));
+  const [reducer, dispatch] = useReducer(calendarReducer, getCalendarReducerState(year, month, weekStart));
 
   const nextMonth = () => dispatch(CalendarReducerActions.nextMonth);
 
