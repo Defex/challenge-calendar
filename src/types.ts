@@ -62,3 +62,10 @@ export enum DayTypes {
   selectedLast = 'selectedLast',
   hover = 'hover',
 }
+
+export interface DayData {
+  [key: string]: {
+    status: DayTypes;
+    price: string;
+  };
+}

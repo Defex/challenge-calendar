@@ -25,31 +25,21 @@ import {
   IconInfo,
 } from './Calendar.styles';
 import MonthDay from './Day/Day';
-import { DayTypes } from '../../types';
 import { getMonthName, getMonthDaySelectedType } from '../../utils';
 import { weekDayNames } from '../../config';
+import { DayData } from '../../types';
 
-const dayData: {
-  [key: string]: {
-    status: DayTypes;
-    price: string;
-  };
-} = {
-  '2020-02-04': {
-    status: DayTypes.confirmed,
-    price: '€1068.99',
-  },
-  '2020-02-05': {
-    status: DayTypes.almostFull,
-    price: '€699',
-  },
-  '2020-02-06': {
-    status: DayTypes.available,
-    price: '€699',
-  },
-};
-
-const Calendar = ({ year, month, weekStart }: { year: number; month: number; weekStart: number }) => {
+const Calendar = ({
+  year,
+  month,
+  weekStart,
+  dayData,
+}: {
+  year: number;
+  month: number;
+  weekStart: number;
+  dayData: DayData;
+}) => {
   const { onDateClick, from, to } = useSelectDateRange();
   const { nextMonth, prevMonth, reducer } = useGetCalendarWeeks(year, month, weekStart);
   const { weekDays, currentYear, currentMonth, calendarWeeks } = reducer;
