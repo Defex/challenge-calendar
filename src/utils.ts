@@ -60,9 +60,12 @@ export const getMonthDaySelectedType = (
   from: CalendarDate | undefined,
   to: CalendarDate | undefined,
 ) => {
-  const _date = toDateString(date.year, date.month, date.day);
-  const _from = from && toDateString(from.year, from.month, from.day);
-  const _to = to && toDateString(to.year, to.month, to.day);
+  const _date = toDateString(date.year, date.month - 1, date.day + 1);
+  const _from = from && toDateString(from.year, from.month - 1, from.day + 1);
+  const _to = to && toDateString(to.year, to.month - 1, to.day + 1);
+
+  console.log(date, from, to);
+  console.log(_date, _from, _to);
 
   if (_date === _from) {
     return DayTypes.selectedFirst;
